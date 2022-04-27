@@ -1,0 +1,33 @@
+version: "2.0"
+
+rules:
+  - rule: Help whenever user asks
+    steps:
+      - intent: help
+      - action: utter_help
+  - rule: Greeting message whenever user greets bot
+    steps:
+      - intent: greet
+      - action: utter_greet
+  - rule: Activate booking form
+    steps:
+      - intent: booking
+      - action: booking_form
+      - active_loop: booking_form
+  - rule: Submit booking form
+    condition:
+      - active_loop: booking_form
+    steps:
+      - action: booking_form
+      - active_loop: null
+      - action: utter_submit
+      - action: action_return_booking_info_json
+  - rule: out-of-scope
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+  - rule: Fallback if bot has low NLU confidence
+    steps:
+      - intent: nlu_fallback
+      - action: utter_please_rephrase
+

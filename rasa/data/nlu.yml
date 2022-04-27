@@ -1,0 +1,59 @@
+version: "2.0"
+nlu:
+  - intent: out_of_scope
+    examples: |
+      - Чого не приїхав поїзд
+      - квитки на літак
+      - як знайти вагон
+      - куплю гараж
+      - івущввдс
+      - щось інакше
+  - intent: greet
+    examples: |
+      - привіт
+      - доброго дня
+      - хай
+      - йо
+      - доброго ранку
+      - добрий ранок
+      - добрий день
+  - intent: help
+    examples: |
+      - хелп
+      - допомога
+      - потрібна допомога
+      - допоможи
+      - рятуйте
+      - не розумію
+      - як це працює
+      - як ти працюєш
+  - intent: booking
+    examples: |
+      - Хочу замовити
+      - Квитки
+      - Замовити
+      - з [Вінниці]{"entity": "city", "role": "departure", "value": "Вінниця"} в [Івано-Франківськ]{"entity": "city", "role": "destination", "value": "Івано-Франківськ"} [о шостій]
+      - три квитка в [Київ]{"entity": "city", "role": "destination"}
+      - [Харків]{"entity": "city", "role": "departure"} [Львів]{"entity": "city", "role": "destination"} 14 грудня
+      - квиток на сьогодні в [берлін]{"entity": "city", "role": "destination", "value": "Берлін"}
+      - Хочу замовити 2 білета в [Одесу]{"entity": "city", "role": "destination", "value": "Одеса"}  20 червня на 16:30
+      - Хочу замовити 2 білета в [Одесу]{"entity": "city", "role": "destination", "value": "Одеса"} 20 червня на 16:30
+      - з [києва]{"entity": "city", "role": "departure", "value": "Київ"} в [запоріжжя]{"entity": "city", "role": "destination", "value": "Запоріжжя"} 5 грудня
+      - Замовляю десять квитків в [Запоріжжя]{"entity": "city", "role": "destination"} 20 грудня на 15:20
+      - два квитки з [Тернопіля]{"entity": "city", "role": "departure"}
+      - Поїзд [Київ]{"entity": "city", "role": "departure"}-[Мелітополь]{"entity": "city", "role": "destination"} на завтра
+  - synonym: Вінниця
+    examples: |
+      - Вінниці
+  - synonym: Берлін
+    examples: |
+      - берлін
+  - synonym: Одеса
+    examples: |
+      - Одесу
+  - synonym: Київ
+    examples: |
+      - києва
+  - synonym: Запоріжжя
+    examples: |
+      - запоріжжя

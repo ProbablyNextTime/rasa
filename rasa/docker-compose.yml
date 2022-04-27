@@ -1,0 +1,22 @@
+version: '3.0'
+services:
+  rasa:
+    image: dockingtoaster/rasa-spacy-ent:0.1.1
+    ports:
+      - 5005:5005
+    command:
+      - run
+  actions:
+    image: dockingtoaster/rasa-action-railway:0.0.4
+    ports:
+      - 5055:5055
+    expose: [5005]
+  duckling:
+    image: rasa/duckling
+    ports:
+      - 8000:8000
+  flask:
+    image: dockingtoaster/rasa-railway-flask:0.0.3
+    ports:
+      - 8080:8080
+    expose: [ 8080 ]
